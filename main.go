@@ -49,11 +49,8 @@ func wait4dst(dstDir string, ignore bool) (dir []os.FileInfo, ok bool) {
 				break
 			} else {
 				fmt.Println("Make " + dstDir + " ready and press any key.")
-				var c int
-				fmt.Scanf("%c", &c)
-				rd := bufio.NewReader(os.Stdin)
-				var buf [1]byte
-				rd.Read(buf[:])
+				scanner := bufio.NewScanner(os.Stdin)
+				scanner.Scan()
 			}
 		} else {
 			ok = true
